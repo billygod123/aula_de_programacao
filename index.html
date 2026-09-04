@@ -3,51 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game do Saber</title>
+    <title>GAME DO SABER</title>
     <style>
+        /* Configurações Globais */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        #container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        /* Cabeçalho */
+        .header-principal {
+            background-color: #1e3a8a;
+            color: #ffffff;
             text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            color: #1e3a8a;
+        .header-principal h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitulo {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #93c5fd;
             letter-spacing: 1px;
         }
 
-        .subtitle {
-            font-weight: 600;
-            color: #3b82f6;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
+        /* Container Principal */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
         }
 
-        .question {
-            font-size: 1.2rem;
+        /* Pergunta em Destaque */
+        .secao-pergunta h2 {
+            color: #1e3a8a;
+            font-size: 1.3rem;
+            text-align: center;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Card da Imagem */
+        .card-imagem {
+            background-color: #ffffff;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .card-imagem img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .card-imagem figcaption {
+            margin-top: 0.8rem;
             font-weight: bold;
-            color: #1f2937;
-            background-color: #e0f2fe;
-            padding: 15px;
-            border
+            color: #4b5563;
+            text-transform: capitalize;
+        }
+
+        /* Texto Explicativo */
+        .secao-texto p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: center;
+            color: #374151;
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid #3b82f6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .header-principal h1 {
+                font-size: 1.8rem;
+            }
+            
+            .secao-pergunta h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-principal">
+        <h1>GAME DO SABER</h1>
+        <p class="subtitulo">NOSSA ESCOLA, NOSSO COMPROMISSO</p>
+    </header>
+
+    <main class="container">
+        
+        <section class="secao-pergunta">
+            <h2>O que nós podemos fazer para tornar nossa escola ainda melhor?</h2>
+        </section>
+
+        <section class="secao-destaque">
+            <figure class="card-imagem">
+                <img src="days.jpeg" alt="Antes e depois da manutenção do ventilador da escola">
+                <figcaption>Antes e depois — "Ventilador"</figcaption>
+            </figure>
+        </section>
+
+        <section class="secao-texto">
+            <p>
+                O cuidado com o patrimônio da escola é responsabilidade de todos os estudantes e funcionários. 
+                Os bens duráveis são importantes para o desenvolvimento dos alunos e geram um ambiente melhor e mais agradável para todos os envolvidos.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Game do Saber — Projeto Escolar</p>
+    </footer>
+
+</body>
+</html>
