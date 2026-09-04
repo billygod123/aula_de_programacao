@@ -86,7 +86,7 @@
             text-transform: uppercase;
         }
 
-        /* Botão de Tema com Design Pílula */
+        /* Botão de Tema */
         .btn-theme {
             position: absolute;
             top: 1.25rem;
@@ -183,6 +183,7 @@
             overflow: hidden;
             background-color: var(--bg-body);
             border: 1px solid var(--border);
+            text-align: center;
         }
 
         .card-imagem img {
@@ -190,6 +191,15 @@
             height: 220px;
             object-fit: cover;
             display: block;
+        }
+
+        /* Sublegenda direta da foto */
+        .card-imagem figcaption {
+            padding: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background-color: var(--bg-card);
         }
 
         /* Badges Flutuantes */
@@ -205,6 +215,7 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 2;
         }
 
         .badge-antes {
@@ -283,74 +294,79 @@
             <span id="themeIcon">🌙</span> <span id="themeText">Modo Escuro</span>
         </button>
         <h1>GAME DO SABER</h1>
-        <p class="subtitulo">Nossa Escola, Nosso Compromisso</p>
+        <p class="subtitulo">NOSSA ESCOLA NOSSO COMPROMISSO</p>
     </header>
 
     <main class="container">
         
         <section class="secao-pergunta">
-            <h2>O que nós podemos fazer para tornar nossa escola ainda melhor?</h2>
+            <h2><u>O QUE NÓS PODEMOS FAZER PARA TORNAR NOSSA ESCOLA AINDA MELHOR?</u></h2>
         </section>
 
-        <!-- Bloco 1: Salas de Aula -->
+        <!-- Bloco 1: Ventiladores e Salas de Aula -->
         <article class="bloco-setor">
             <h3>Salas de Aula (Ventiladores e Mobiliário)</h3>
             <div class="galeria-antes-depois">
-                <div class="card-imagem">
+                <figure class="card-imagem">
                     <span class="badge badge-antes">Antes</span>
-                    <img src="sala-antes.jpg" alt="Sala de aula antes do conserto">
-                </div>
-                <div class="card-imagem">
+                    <img src="days.jpeg" alt="Ventilador danificado antes do conserto">
+                    <figcaption>Ventilador sem manutenção</figcaption>
+                </figure>
+                <figure class="card-imagem">
                     <span class="badge badge-depois">Depois</span>
-                    <img src="sala-depois.jpg" alt="Sala de aula depois do conserto">
-                </div>
+                    <img src="sala-depois.jpg" alt="Ventilador e sala consertados">
+                    <figcaption>Ventilador restaurado e funcionando</figcaption>
+                </figure>
             </div>
             <div class="legenda-mudanca">
-                <strong>O que mudou:</strong> Reparo dos ventiladores danificados, nova pintura das paredes e manutenção das carteiras e mesas dos estudantes.
+                <strong>O que mudou:</strong> Reparo dos ventiladores quebrados, nova pintura nas paredes e recuperação das carteiras e mesas dos alunos.
             </div>
         </article>
 
-        <!-- Bloco 2: Pátio -->
+        <!-- Bloco 2: Pátio e Área de Convivência -->
         <article class="bloco-setor">
             <h3>Pátio e Área de Convivência</h3>
             <div class="galeria-antes-depois">
-                <div class="card-imagem">
+                <figure class="card-imagem">
                     <span class="badge badge-antes">Antes</span>
-                    <img src="patio-antes.jpg" alt="Pátio antes da melhoria">
-                </div>
-                <div class="card-imagem">
+                    <img src="patio-antes.jpg" alt="Pátio antes da revitalização">
+                    <figcaption>Área com desgaste e desorganizada</figcaption>
+                </figure>
+                <figure class="card-imagem">
                     <span class="badge badge-depois">Depois</span>
-                    <img src="patio-depois.jpg" alt="Pátio depois da melhoria">
-                </div>
+                    <img src="patio-depois.jpg" alt="Pátio revitalizado">
+                    <figcaption>Espaço limpo com bancos pintados</figcaption>
+                </figure>
             </div>
             <div class="legenda-mudanca">
-                <strong>O que mudou:</strong> Organização do espaço comum, pintura dos bancos de descanso e instalação de lixeiras para separação do lixo.
+                <strong>O que mudou:</strong> Limpeza completa do espaço, restauração dos bancos de descanso e instalação de novas lixeiras para coleta seletiva.
             </div>
         </article>
 
-        <!-- Bloco 3: Banheiros -->
+        <!-- Bloco 3: Banheiros Escolares -->
         <article class="bloco-setor">
             <h3>Banheiros Escolares</h3>
             <div class="galeria-antes-depois">
-                <div class="card-imagem">
+                <figure class="card-imagem">
                     <span class="badge badge-antes">Antes</span>
-                    <img src="banheiro-antes.jpg" alt="Banheiro antes da reforma">
-                </div>
-                <div class="card-imagem">
+                    <img src="banheiro-antes.jpg" alt="Banheiro necessitando de reparos">
+                    <figcaption>Torneiras e lâmpadas danificadas</figcaption>
+                </figure>
+                <figure class="card-imagem">
                     <span class="badge badge-depois">Depois</span>
-                    <img src="banheiro-depois.jpg" alt="Banheiro depois da reforma">
-                </div>
+                    <img src="banheiro-depois.jpg" alt="Banheiro reformado">
+                    <figcaption>Torneiras novas e iluminação ajustada</figcaption>
+                </figure>
             </div>
             <div class="legenda-mudanca">
-                <strong>O que mudou:</strong> Substituição das torneiras com defeito, troca de lâmpadas queimadas e adição de saboneteiras nas pias.
+                <strong>O que mudou:</strong> Substituição de torneiras com vazamento, troca de lâmpadas queimadas e instalação de dispensadores de sabão e papel.
             </div>
         </article>
 
         <!-- Mensagem de Conscientização -->
         <section class="secao-texto-geral">
             <p>
-                O cuidado com o patrimônio da escola é responsabilidade de todos os estudantes e funcionários. 
-                Os bens duráveis são importantes para o desenvolvimento dos alunos e geram um ambiente melhor e mais agradável para todos os envolvidos.
+                O cuidado com o patrimônio da escola é responsabilidade de todos os estudantes e funcionários, os bens duráveis são importantes para o desenvolvimento dos estudantes e gera um ambiente melhor para todos os envolvidos.
             </p>
         </section>
 
