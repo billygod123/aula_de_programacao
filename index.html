@@ -4,177 +4,274 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAME DO SABER</title>
+    <!-- Fonte Google Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        /* Variáveis de Cores (Modo Claro Padrão) */
+        /* Variáveis de Tema */
         :root {
-            --bg-body: #f4f7f6;
+            --bg-body: #f8fafc;
             --bg-card: #ffffff;
-            --text-color: #333333;
-            --text-sub: #4b5563;
-            --primary: #1e3a8a;
-            --accent: #3b82f6;
-            --header-bg: #1e3a8a;
-            --header-text: #ffffff;
-            --footer-bg: #1e293b;
-            --border-color: #e5e7eb;
-        }
-
-        /* Cores para o Modo Escuro */
-        body.dark-mode {
-            --bg-body: #121212;
-            --bg-card: #1e1e1e;
-            --text-color: #e0e0e0;
-            --text-sub: #9ca3af;
-            --primary: #60a5fa;
-            --accent: #3b82f6;
-            --header-bg: #0f172a;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --accent-before: #ef4444;
+            --accent-after: #10b981;
+            --header-bg: #1e293b;
             --header-text: #ffffff;
             --footer-bg: #0f172a;
-            --border-color: #374151;
+            --border: #e2e8f0;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        }
+
+        /* Modo Escuro */
+        body.dark-mode {
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --primary-hover: #60a5fa;
+            --header-bg: #020617;
+            --footer-bg: #020617;
+            --border: #334155;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
         }
 
         body {
             background-color: var(--bg-body);
-            color: var(--text-color);
+            color: var(--text-main);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* Cabeçalho */
+        /* Cabeçalho Hero */
         .header-principal {
-            background-color: var(--header-bg);
+            background: linear-gradient(135deg, var(--header-bg) 0%, #1e1b4b 100%);
             color: var(--header-text);
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 3.5rem 1.5rem 2.5rem;
             position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .header-principal h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
             margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitulo {
-            font-size: 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
             color: #93c5fd;
+            text-transform: uppercase;
         }
 
-        /* Botão do Modo Escuro/Claro */
+        /* Botão de Tema com Design Pílula */
         .btn-theme {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-color: rgba(255, 255, 255, 0.2);
+            top: 1.25rem;
+            right: 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
             color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.6rem 1.2rem;
+            border-radius: 9999px;
             cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: bold;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn-theme:hover {
-            background-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
         }
 
-        /* Container Principal */
+        /* Layout Container */
         .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
             flex: 1;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: 2rem;
+            gap: 2.5rem;
+        }
+
+        /* Pergunta Principal */
+        .secao-pergunta {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .secao-pergunta h2 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            text-align: center;
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            position: relative;
+            display: inline-block;
         }
 
-        /* Galeria Antes e Depois */
-        .galeria-antes-depois {
+        .secao-pergunta h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0.75rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Cartões de Setores da Escola */
+        .bloco-setor {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: var(--shadow);
+        }
+
+        .bloco-setor:hover {
+            transform: translateY(-2px);
+        }
+
+        .bloco-setor h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
             display: flex;
-            gap: 1.5rem;
-            width: 100%;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Grid Antes e Depois */
+        .galeria-antes-depois {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
         }
 
         .card-imagem {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 1rem;
+            position: relative;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            flex: 1;
-            min-width: 280px;
-            max-width: 400px;
+            overflow: hidden;
+            background-color: var(--bg-body);
+            border: 1px solid var(--border);
         }
 
         .card-imagem img {
             width: 100%;
             height: 220px;
             object-fit: cover;
-            border-radius: 8px;
+            display: block;
         }
 
-        .card-imagem figcaption {
-            margin-top: 0.8rem;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.1rem;
+        /* Badges Flutuantes */
+        .badge {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        /* Mensagens abaixo das Imagens */
-        .secao-texto {
-            width: 100%;
-            max-width: 820px;
+        .badge-antes {
+            background-color: var(--accent-before);
         }
 
-        .secao-texto p {
-            font-size: 1.05rem;
-            line-height: 1.6;
+        .badge-depois {
+            background-color: var(--accent-after);
+        }
+
+        /* Caixa de Descrição da Mudança */
+        .legenda-mudanca {
+            background-color: var(--bg-body);
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            border-left: 4px solid var(--primary);
+        }
+
+        .legenda-mudanca strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* Banner de Conscientização */
+        .secao-texto-geral {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(59, 130, 246, 0.03) 100%);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 16px;
             text-align: center;
-            color: var(--text-color);
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 5px solid var(--accent);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        /* Rodapé */
+        .secao-texto-geral p {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        /* Rodapé Minimalista */
         footer {
             background-color: var(--footer-bg);
-            color: #94a3b8;
+            color: var(--text-muted);
             text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-            font-size: 0.9rem;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
         }
 
-        @media (max-width: 600px) {
+        /* Responsividade */
+        @media (max-width: 640px) {
+            .header-principal {
+                padding-top: 4.5rem;
+            }
+            .header-principal h1 {
+                font-size: 1.8rem;
+            }
             .btn-theme {
-                position: static;
-                margin-top: 1rem;
+                top: 1rem;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            .btn-theme:hover {
+                transform: translateX(50%) translateY(-1px);
             }
         }
     </style>
@@ -182,9 +279,11 @@
 <body>
 
     <header class="header-principal">
-        <button class="btn-theme" id="themeToggle">🌙 Modo Escuro</button>
+        <button class="btn-theme" id="themeToggle">
+            <span id="themeIcon">🌙</span> <span id="themeText">Modo Escuro</span>
+        </button>
         <h1>GAME DO SABER</h1>
-        <p class="subtitulo">NOSSA ESCOLA, NOSSO COMPROMISSO</p>
+        <p class="subtitulo">Nossa Escola, Nosso Compromisso</p>
     </header>
 
     <main class="container">
@@ -193,23 +292,62 @@
             <h2>O que nós podemos fazer para tornar nossa escola ainda melhor?</h2>
         </section>
 
-        <!-- Seção Antes e Depois -->
-        <section class="galeria-antes-depois">
-            <figure class="card-imagem">
-                <!-- Substitua 'antes.jpg' pela sua imagem -->
-                <img src="antes.jpg" alt="Ventilador antes do conserto">
-                <figcaption>ANTES — Ventilador Danificado</figcaption>
-            </figure>
+        <!-- Bloco 1: Salas de Aula -->
+        <article class="bloco-setor">
+            <h3>Salas de Aula (Ventiladores e Mobiliário)</h3>
+            <div class="galeria-antes-depois">
+                <div class="card-imagem">
+                    <span class="badge badge-antes">Antes</span>
+                    <img src="sala-antes.jpg" alt="Sala de aula antes do conserto">
+                </div>
+                <div class="card-imagem">
+                    <span class="badge badge-depois">Depois</span>
+                    <img src="sala-depois.jpg" alt="Sala de aula depois do conserto">
+                </div>
+            </div>
+            <div class="legenda-mudanca">
+                <strong>O que mudou:</strong> Reparo dos ventiladores danificados, nova pintura das paredes e manutenção das carteiras e mesas dos estudantes.
+            </div>
+        </article>
 
-            <figure class="card-imagem">
-                <!-- Substitua 'depois.jpg' pela sua imagem -->
-                <img src="depois.jpg" alt="Ventilador depois do conserto">
-                <figcaption>DEPOIS — Ventilador Restaurado</figcaption>
-            </figure>
-        </section>
+        <!-- Bloco 2: Pátio -->
+        <article class="bloco-setor">
+            <h3>Pátio e Área de Convivência</h3>
+            <div class="galeria-antes-depois">
+                <div class="card-imagem">
+                    <span class="badge badge-antes">Antes</span>
+                    <img src="patio-antes.jpg" alt="Pátio antes da melhoria">
+                </div>
+                <div class="card-imagem">
+                    <span class="badge badge-depois">Depois</span>
+                    <img src="patio-depois.jpg" alt="Pátio depois da melhoria">
+                </div>
+            </div>
+            <div class="legenda-mudanca">
+                <strong>O que mudou:</strong> Organização do espaço comum, pintura dos bancos de descanso e instalação de lixeiras para separação do lixo.
+            </div>
+        </article>
 
-        <!-- Mensagem explicativa abaixo da imagem -->
-        <section class="secao-texto">
+        <!-- Bloco 3: Banheiros -->
+        <article class="bloco-setor">
+            <h3>Banheiros Escolares</h3>
+            <div class="galeria-antes-depois">
+                <div class="card-imagem">
+                    <span class="badge badge-antes">Antes</span>
+                    <img src="banheiro-antes.jpg" alt="Banheiro antes da reforma">
+                </div>
+                <div class="card-imagem">
+                    <span class="badge badge-depois">Depois</span>
+                    <img src="banheiro-depois.jpg" alt="Banheiro depois da reforma">
+                </div>
+            </div>
+            <div class="legenda-mudanca">
+                <strong>O que mudou:</strong> Substituição das torneiras com defeito, troca de lâmpadas queimadas e adição de saboneteiras nas pias.
+            </div>
+        </article>
+
+        <!-- Mensagem de Conscientização -->
+        <section class="secao-texto-geral">
             <p>
                 O cuidado com o patrimônio da escola é responsabilidade de todos os estudantes e funcionários. 
                 Os bens duráveis são importantes para o desenvolvimento dos alunos e geram um ambiente melhor e mais agradável para todos os envolvidos.
@@ -219,19 +357,23 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Game do Saber — Projeto Escolar</p>
+        <p>&copy; 2026 Game do Saber — Projeto Escolar de Preservação</p>
     </footer>
 
     <script>
         const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
         
         themeToggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             
             if (document.body.classList.contains('dark-mode')) {
-                themeToggleBtn.textContent = '☀️ Modo Claro';
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Modo Claro';
             } else {
-                themeToggleBtn.textContent = '🌙 Modo Escuro';
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Modo Escuro';
             }
         });
     </script>
